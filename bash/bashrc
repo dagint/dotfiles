@@ -1,0 +1,28 @@
+# Exit early for non-interactive shells
+[[ $- != *i* ]] && return
+
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=less
+
+# History
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoreboth:erasedups
+export HISTTIMEFORMAT='%F %T '
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s cmdhist
+
+# Safer defaults
+set -o noclobber  # Prevent accidental overwrites with >
+shopt -s checkhash
+shopt -s checkjobs
+
+# Prompt (simple + informative)
+PS1='\u@\h:\w\$ '
+
+# Source extras
+source ~/.dotfiles/bash/aliases.sh
+source ~/.dotfiles/bash/functions.sh
+source ~/.dotfiles/bash/env.sh

@@ -1,0 +1,308 @@
+# Global Git Ignore Patterns
+# This file is intended for use across all repositories
+# Patterns here should be general enough to apply to most projects
+
+###############################################################################
+# Secrets and Credentials
+###############################################################################
+
+# Environment variables and secrets
+.env
+.env.*
+.env.local
+.env.*.local
+*.secret
+*.secrets
+.secrets/
+.secrets.yaml
+.secrets.yml
+
+# Encryption and key files
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.cert
+*.csr
+*.der
+id_rsa
+id_rsa.pub
+id_dsa
+id_ed25519
+*.gpg
+*.asc
+
+# Secret management files
+.sops.yaml
+.sops.yml
+vault-secrets.*
+sealed-secrets.*
+
+###############################################################################
+# Infrastructure as Code
+###############################################################################
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+*.tfvars
+.terraformrc
+
+# Ansible
+*.retry
+.ansible/
+
+# CloudFormation
+*.template.yaml.bak
+cloudformation-outputs.json
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+.kube/
+
+###############################################################################
+# Dependencies and Package Managers
+###############################################################################
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-store/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+pip-log.txt
+pip-debug.log
+.pytest_cache/
+.coverage
+*.egg-info/
+dist/
+build/
+
+# Go
+vendor/
+*.test
+*.out
+
+# Rust
+target/
+Cargo.lock
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+build/
+out/
+
+###############################################################################
+# Editor and IDE Files
+###############################################################################
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+Session.vim
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Cursor / Claude
+.cursor/
+.claude/
+
+# Other editors
+*.sublime-*
+.project
+.classpath
+.settings/
+
+###############################################################################
+# Operating System Files
+###############################################################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+###############################################################################
+# Build Artifacts and Compiled Files
+###############################################################################
+
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.o
+*.obj
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Build directories
+build/
+dist/
+out/
+target/
+bin/
+obj/
+*.egg-info/
+
+###############################################################################
+# Logs and Temporary Files
+###############################################################################
+
+# Log files
+*.log
+*.log.*
+logs/
+*.pid
+*.pid.lock
+*.seed
+*.pid.lock
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*.cache
+.cache/
+tmp/
+temp/
+
+###############################################################################
+# Database Files
+###############################################################################
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Database dumps
+*.sql
+*.dump
+*.sql.gz
+
+###############################################################################
+# Testing and Coverage
+###############################################################################
+
+# Coverage reports
+.coverage
+coverage/
+*.cover
+.nyc_output/
+coverage.xml
+*.lcov
+
+# Test results
+.pytest_cache/
+.tox/
+.hypothesis/
+test-results/
+junit.xml
+
+###############################################################################
+# Documentation Builds
+###############################################################################
+
+# Sphinx
+docs/_build/
+docs/.doctrees/
+
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+###############################################################################
+# Miscellaneous
+###############################################################################
+
+# Lock files (uncomment if you want to ignore them)
+# package-lock.json
+# yarn.lock
+# Pipfile.lock
+# poetry.lock
+
+# Local configuration overrides
+local/
+local.*
+*.local
+
+# Backup and swap files
+*~
+*.orig
+*.rej

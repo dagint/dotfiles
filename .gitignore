@@ -1,0 +1,25 @@
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+
+# OS-specific
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Temporary files
+*.log
+*.pid
+*.seed
+*.pid.lock
