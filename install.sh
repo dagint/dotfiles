@@ -32,6 +32,12 @@ ln -sf "$DOTFILES_DIR/docker/config.json" "$HOME/.docker/config.json"
 # Configure git
 git config --global core.excludesfile "$HOME/.gitignore_global" || true
 
+# Source bash files if they exist
+if [ -f "$DOTFILES_DIR/bash/functions.sh" ]; then
+    source "$DOTFILES_DIR/bash/functions.sh" || true
+fi
+
 echo "Dotfiles installed successfully."
 echo ""
 echo "Note: You may need to configure your git user.name and user.email in ~/.gitconfig"
+echo "Note: You may need to reload your shell or run: source ~/.bashrc"
