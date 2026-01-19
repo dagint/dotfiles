@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- direnv hook integration in `bashrc` for automatic environment variable loading
 - Safe helper functions in `bash/functions.sh` for context visibility
   - `kctx-info()` - Show Kubernetes context and namespace
   - `tf-info()` - Show Terraform workspace and directory

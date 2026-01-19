@@ -22,6 +22,8 @@ shopt -s checkjobs
 # Prompt (simple + informative)
 PS1='\u@\h:\w\$ '
 
+command -v direnv >/dev/null && eval "$(direnv hook bash)"
+
 # Source extras
 source ~/.dotfiles/bash/aliases.sh
 source ~/.dotfiles/bash/functions.sh
