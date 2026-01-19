@@ -1,0 +1,23 @@
+[user]
+    # name = Your Name
+    # email = your.email@example.com
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+
+[pull]
+    rebase = false
+
+[fetch]
+    prune = true
+
+[init]
+    defaultBranch = main
+
+[diff]
+    tool = vimdiff
+
+[merge]
+    tool = vimdiff
