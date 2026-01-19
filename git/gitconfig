@@ -21,3 +21,13 @@
 
 [merge]
     tool = vimdiff
+
+# Git commit signing with SSH
+# Uncomment and set the path to your SSH private key for commit signing
+# Example: ~/.ssh/id_ed25519 or ~/.ssh/id_rsa
+# [gpg]
+#     format = ssh
+# [user]
+#     signingKey = ~/.ssh/id_ed25519.pub
+# [commit]
+#     gpgsign = true
