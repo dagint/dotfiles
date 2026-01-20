@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Git configuration via environment variables**: 
+  - `install.sh` now sets `user.name` and `user.email` from `GIT_USER_NAME` and `GIT_USER_EMAIL` environment variables
+  - Allows automated setup in CI/CD and development containers without manual configuration
 - **Gap analysis enhancements**:
   - PATH manipulation for `~/bin` and `~/.dotfiles/bin` directories (automatically added if they exist)
   - Git branch display in prompt via `parse_git_branch()` function (read-only, safe)
