@@ -1,6 +1,15 @@
 # Exit early for non-interactive shells
 [[ $- != *i* ]] && return
 
+# Determine dotfiles location
+if [ -n "$DOTFILES" ]; then
+    DOTFILES_DIR="$DOTFILES"
+elif [ -d "$HOME/.dotfiles" ]; then
+    DOTFILES_DIR="$HOME/.dotfiles"
+else
+    DOTFILES_DIR="$HOME/.dotfiles"  # fallback
+fi
+
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
@@ -20,7 +29,7 @@ shopt -s checkhash
 shopt -s checkjobs
 
 # Source functions first (needed for prompt)
-source ~/.dotfiles/bash/functions.sh
+source $DOTFILES_DIR/bash/functions.sh
 
 # Prompt (simple + informative with git branch)
 PS1='\u@\h:\w$(parse_git_branch)\$ '
@@ -29,8 +38,8 @@ command -v direnv >/dev/null && eval "$(direnv hook bash)"
 
 # Add user bin directories to PATH if they exist
 [ -d "$HOME/bin" ] && path-prepend "$HOME/bin"
-[ -d "$HOME/.dotfiles/bin" ] && path-prepend "$HOME/.dotfiles/bin"
+[ -d "$DOTFILES_DIR/bin" ] && path-prepend "$DOTFILES_DIR/bin"
 
 # Source extras
-source ~/.dotfiles/bash/aliases.sh
-source ~/.dotfiles/bash/env.sh
+source $DOTFILES_DIR/bash/aliases.sh
+source $DOTFILES_DIR/bash/env.sh
