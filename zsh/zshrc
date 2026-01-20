@@ -1,0 +1,41 @@
+# Exit early for non-interactive shells
+[[ $- != *i* ]] && return
+
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=less
+
+# History
+export HISTSIZE=10000
+export SAVEHIST=20000
+export HISTFILE=~/.zsh_history
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+export HIST_STAMPS='%F %T '
+
+# Safer defaults
+set -o noclobber  # Prevent accidental overwrites with >
+setopt CHECK_JOBS
+setopt HASH_CMDS
+setopt HASH_DIRS
+
+# Prompt (simple + informative)
+PS1='%n@%m:%~%# '
+
+# Enable completion system
+autoload -Uz compinit
+compinit
+
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+
+# Source extras
+source ~/.dotfiles/zsh/aliases.sh
+source ~/.dotfiles/zsh/functions.sh
+source ~/.dotfiles/zsh/env.sh

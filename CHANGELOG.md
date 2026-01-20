@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- zsh support with equivalent configuration files:
+  - `zsh/zshrc` - zsh configuration with zsh-specific options
+  - `zsh/aliases.sh` - Same safe aliases as bash version
+  - `zsh/functions.sh` - Same safe functions as bash version
+  - `zsh/env.sh` - Environment variables (zsh-specific adjustments)
+- Shell detection in `install.sh` to automatically install bash or zsh configuration
+- Updated README to document both bash and zsh support
 - direnv hook integration in `bashrc` for automatic environment variable loading
 - Safe helper functions in `bash/functions.sh` for context visibility
   - `kctx-info()` - Show Kubernetes context and namespace
