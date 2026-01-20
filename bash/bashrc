@@ -19,12 +19,18 @@ set -o noclobber  # Prevent accidental overwrites with >
 shopt -s checkhash
 shopt -s checkjobs
 
-# Prompt (simple + informative)
-PS1='\u@\h:\w\$ '
+# Source functions first (needed for prompt)
+source ~/.dotfiles/bash/functions.sh
+
+# Prompt (simple + informative with git branch)
+PS1='\u@\h:\w$(parse_git_branch)\$ '
 
 command -v direnv >/dev/null && eval "$(direnv hook bash)"
 
+# Add user bin directories to PATH if they exist
+[ -d "$HOME/bin" ] && path-prepend "$HOME/bin"
+[ -d "$HOME/.dotfiles/bin" ] && path-prepend "$HOME/.dotfiles/bin"
+
 # Source extras
 source ~/.dotfiles/bash/aliases.sh
-source ~/.dotfiles/bash/functions.sh
 source ~/.dotfiles/bash/env.sh

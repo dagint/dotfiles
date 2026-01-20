@@ -1,3 +1,6 @@
+# Set umask for shared development (group writable)
+umask 0002
+
 # Prevent accidental use of production
 export TF_IN_AUTOMATION=1
 export AWS_PAGER=""

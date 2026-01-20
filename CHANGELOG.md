@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Gap analysis enhancements**:
+  - PATH manipulation for `~/bin` and `~/.dotfiles/bin` directories (automatically added if they exist)
+  - Git branch display in prompt via `parse_git_branch()` function (read-only, safe)
+  - `umask 0002` setting for shared development environments
+  - Additional safe git aliases: `lg` (pretty log), `recent-branches`, `latest-remote`, `latest` (all read-only)
+  - Shell logout scripts: `bash/bash_logout` and `zsh/zlogout` (clear screen on logout for privacy)
+  - Terraform provider mirror configuration example (commented, for organization-specific mirrors)
 - zsh support with equivalent configuration files:
   - `zsh/zshrc` - zsh configuration with zsh-specific options
   - `zsh/aliases.sh` - Same safe aliases as bash version

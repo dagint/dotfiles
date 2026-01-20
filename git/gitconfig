@@ -22,6 +22,13 @@
 [merge]
     tool = vimdiff
 
+[alias]
+    # Safe, read-only aliases
+    lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -15
+    recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+    latest-remote = for-each-ref --sort=-committerdate --count=20 --format='%(authorname)\t%(committerdate:relative)\t%(refname:short)' refs/remotes
+    latest = for-each-ref --sort=-committerdate --count=20 --format='%(authorname)\t%(committerdate:relative)\t%(refname:short)' refs/heads
+
 # Git commit signing with SSH
 # Uncomment and set the path to your SSH private key for commit signing
 # Example: ~/.ssh/id_ed25519 or ~/.ssh/id_rsa

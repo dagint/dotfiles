@@ -38,6 +38,7 @@ mkdir -p "$HOME/.docker"
 if [ "$CURRENT_SHELL" = "zsh" ]; then
     if [ -d "$DOTFILES_DIR/zsh" ]; then
         ln -sf "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
+        ln -sf "$DOTFILES_DIR/zsh/zlogout" "$HOME/.zlogout"
         echo "Installed zsh configuration"
     else
         echo "Warning: zsh directory not found, skipping zsh configuration" >&2
@@ -45,6 +46,7 @@ if [ "$CURRENT_SHELL" = "zsh" ]; then
 else
     if [ -d "$DOTFILES_DIR/bash" ]; then
         ln -sf "$DOTFILES_DIR/bash/bashrc" "$HOME/.bashrc"
+        ln -sf "$DOTFILES_DIR/bash/bash_logout" "$HOME/.bash_logout"
         echo "Installed bash configuration"
     else
         echo "Warning: bash directory not found, skipping bash configuration" >&2
