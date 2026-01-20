@@ -26,8 +26,13 @@ setopt CHECK_JOBS
 setopt HASH_CMDS
 setopt HASH_DIRS
 
-# Prompt (simple + informative)
-PS1='%n@%m:%~%# '
+# Source functions first (needed for prompt)
+source ~/.dotfiles/zsh/functions.sh
+
+# Prompt (simple + informative with git branch)
+# Note: zsh prompt uses %v for vcs_info, but we use a simple function for compatibility
+setopt PROMPT_SUBST
+PS1='%n@%m:%~$(parse_git_branch)%# '
 
 # Enable completion system
 autoload -Uz compinit
@@ -35,7 +40,10 @@ compinit
 
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 
+# Add user bin directories to PATH if they exist
+[ -d "$HOME/bin" ] && path-prepend "$HOME/bin"
+[ -d "$HOME/.dotfiles/bin" ] && path-prepend "$HOME/.dotfiles/bin"
+
 # Source extras
 source ~/.dotfiles/zsh/aliases.sh
-source ~/.dotfiles/zsh/functions.sh
 source ~/.dotfiles/zsh/env.sh
