@@ -83,6 +83,7 @@ fi
 
 echo "Dotfiles installed successfully."
 echo ""
+echo "Note: You may need to configure your git user.name and user.email in ~/.gitconfig"
 if [ -z "${GIT_USER_NAME:-}" ] || [ -z "${GIT_USER_EMAIL:-}" ]; then
     echo "Note: Git user.name and user.email can be set via environment variables:"
     echo "  export GIT_USER_NAME='Your Name'"
