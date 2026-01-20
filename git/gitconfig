@@ -1,10 +1,15 @@
 [user]
-    # name = Your Name
-    # email = your.email@example.com
+    name = Michael Ginter
+    email = michael.ginter@bwater.com
+    # name and email are set from environment variables during installation
+    # Set GIT_USER_NAME and GIT_USER_EMAIL environment variables before running install.sh
+    # Or configure manually after installation:
+    # git config --global user.name "Your Name"
+    # git config --global user.email "your.email@example.com"
 
 [core]
     editor = vim
-    excludesfile = ~/.gitignore_global
+    # excludesfile is set by install.sh to ~/.gitignore_global
     autocrlf = input
 
 [pull]
@@ -21,6 +26,13 @@
 
 [merge]
     tool = vimdiff
+
+[alias]
+    # Safe, read-only aliases
+    lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -15
+    recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+    latest-remote = for-each-ref --sort=-committerdate --count=20 --format='%(authorname)\t%(committerdate:relative)\t%(refname:short)' refs/remotes
+    latest = for-each-ref --sort=-committerdate --count=20 --format='%(authorname)\t%(committerdate:relative)\t%(refname:short)' refs/heads
 
 # Git commit signing with SSH
 # Uncomment and set the path to your SSH private key for commit signing
