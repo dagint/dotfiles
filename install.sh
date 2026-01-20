@@ -63,6 +63,17 @@ ln -sf "$DOTFILES_DIR/docker/config.json" "$HOME/.docker/config.json"
 # Configure git
 git config --global core.excludesfile "$HOME/.gitignore_global" || true
 
+# Set git user name and email from environment variables if provided
+if [ -n "${GIT_USER_NAME:-}" ]; then
+    git config --global user.name "$GIT_USER_NAME"
+    echo "Set git user.name from GIT_USER_NAME environment variable"
+fi
+
+if [ -n "${GIT_USER_EMAIL:-}" ]; then
+    git config --global user.email "$GIT_USER_EMAIL"
+    echo "Set git user.email from GIT_USER_EMAIL environment variable"
+fi
+
 # Source shell-specific files if they exist (for immediate use)
 if [ "$CURRENT_SHELL" = "zsh" ] && [ -f "$DOTFILES_DIR/zsh/functions.sh" ]; then
     source "$DOTFILES_DIR/zsh/functions.sh" || true
@@ -72,7 +83,16 @@ fi
 
 echo "Dotfiles installed successfully."
 echo ""
-echo "Note: You may need to configure your git user.name and user.email in ~/.gitconfig"
+if [ -z "${GIT_USER_NAME:-}" ] || [ -z "${GIT_USER_EMAIL:-}" ]; then
+    echo "Note: Git user.name and user.email can be set via environment variables:"
+    echo "  export GIT_USER_NAME='Your Name'"
+    echo "  export GIT_USER_EMAIL='your.email@example.com'"
+    echo "  ./install.sh"
+    echo ""
+    echo "Or configure manually:"
+    echo "  git config --global user.name 'Your Name'"
+    echo "  git config --global user.email 'your.email@example.com'"
+fi
 if [ "$CURRENT_SHELL" = "zsh" ]; then
     echo "Note: You may need to reload your shell or run: source ~/.zshrc"
 else
